@@ -1954,8 +1954,7 @@ value rocq_interprete
         CheckPrimArgs(Is_double(accu) && Is_uint63(sp[0]), apply2);
         Swap_accu_sp;
         Uint63_to_int_min(accu, Val_int(2 * FLOAT_EXP_SHIFT));
-        accu = Int_val(accu);
-        Rocq_copy_double(ldexp(Double_val(*sp++), accu - FLOAT_EXP_SHIFT));
+        Rocq_copy_double(ldexp(Double_val(*sp++), Int_val(accu) - FLOAT_EXP_SHIFT));
         Next;
       }
 
